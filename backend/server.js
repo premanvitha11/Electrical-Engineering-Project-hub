@@ -7,7 +7,7 @@ const path = require('path')
 const app = express()
 
 // Middleware
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }))
+app.use(cors({ origin: [process.env.CLIENT_URL, 'https://electrical-engineering-project-b2peep8ag-premanvithas-projects.vercel.app'], credentials: true }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
