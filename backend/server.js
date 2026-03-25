@@ -33,7 +33,7 @@ app.use('/api/doubts',   require('./routes/doubts'))
 app.use('/api/users',    require('./routes/users'))
 app.use('/api/colleges', require('./routes/colleges'))
 
-// Health check
+// Health check - v2
 app.get('/api/health', (req, res) => res.json({ status: 'ok', time: new Date() }))
 
 // Global error handler
