@@ -1,0 +1,17 @@
+.form-page { max-width: 700px; margin: 0 auto; padding: 32px 24px; }
+.form-page h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+.form-sub { color: var(--subtext); font-size: 14px; margin-bottom: 24px; }
+.form-card { background: #fff; border-radius: 18px; padding: 28px; border: 1px solid var(--border); }
+.form-card label { display: block; font-size: 12px; font-weight: 700; color: var(--subtext); margin: 18px 0 8px; }
+.form-card label:first-child { margin-top: 0; }
+.form-card textarea { resize: vertical; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 7px 16px; border-radius: 20px; border: 1.5px solid var(--border); font-size: 13px; font-weight: 600; color: var(--subtext); background: #fff; transition: all 0.15s; }
+.chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.chip:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+.upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.upload-slot { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1.5px dashed var(--border); border-radius: 10px; padding: 14px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--subtext); transition: border-color 0.15s; }
+.upload-slot:hover { border-color: var(--primary); color: var(--primary); }
+.upload-plus { margin-left: auto; font-size: 20px; color: var(--primary); }
+.submit-btn { width: 100%; margin-top: 24px; padding: 14px; background: var(--primary); color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; transition: opacity 0.2s; }
+.submit-btn:hover { opacity: 0.9; }

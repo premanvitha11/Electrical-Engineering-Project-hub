@@ -1,0 +1,20 @@
+.doubt-page { max-width: 760px; }
+.doubts-heading { font-size: 18px; font-weight: 700; margin: 28px 0 14px; }
+.doubt-card { background: #fff; border-radius: 14px; padding: 18px; margin-bottom: 16px; border: 1px solid var(--border); }
+.doubt-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.subject-tag { background: var(--primary-light); color: var(--primary); border-radius: 6px; padding: 3px 10px; font-size: 11px; font-weight: 700; }
+.doubt-author { font-size: 12px; color: var(--subtext); }
+.doubt-time { font-size: 11px; color: var(--subtext); margin-left: auto; }
+.doubt-q { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 12px; line-height: 1.5; }
+.doubt-img { max-width: 200px; border-radius: 8px; margin: 8px 0; display: block; cursor: pointer; }
+.answer-box { background: var(--bg); border-radius: 8px; padding: 12px; margin-top: 8px; border: 1px solid var(--border); }
+.answer-box.verified { background: #fffde7; border-color: var(--verified); }
+.answer-author { font-size: 12px; font-weight: 700; color: var(--primary); display: block; margin-bottom: 6px; }
+.answer-box p { font-size: 13px; color: var(--subtext); line-height: 1.6; }
+.verified-tag { font-size: 12px; color: var(--verified); font-weight: 700; display: block; margin-top: 8px; }
+.reply-btn { margin-top: 10px; background: var(--primary-light); color: var(--primary); border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.reply-box { margin-top: 10px; }
+.reply-box textarea { width: 100%; margin-bottom: 8px; }
+.reply-actions { display: flex; gap: 8px; }
+.reply-submit { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.reply-cancel { background: transparent; border: 1.5px solid var(--border); color: var(--subtext); border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer; }
