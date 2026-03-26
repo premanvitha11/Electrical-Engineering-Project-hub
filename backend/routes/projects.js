@@ -29,7 +29,7 @@ router.post('/', protect, (req, res) => {
         tools:      tools      ? JSON.parse(tools)      : [],
         author: req.user._id,
         files: mapFiles(req.files),
-        status: req.user.role === 'Professor' ? 'approved' : 'pending',
+        status: 'approved',
       })
       res.status(201).json(project)
     } catch (err) {
