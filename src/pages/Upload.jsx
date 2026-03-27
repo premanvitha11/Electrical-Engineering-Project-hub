@@ -82,7 +82,7 @@ function FileSlot({ icon, label, accept, fieldName, multiple = false, files, onC
 
 export default function Upload() {
   const navigate = useNavigate()
-  const [form, setForm]     = useState({ title: '', subject: '', abstract: '', objectives: '', tools: '', difficulty: '', semester: '', college: '' })
+  const [form, setForm] = useState({ title: '', subject: '', abstract: '', objectives: '', tools: '', difficulty: '', semester: '', college: '', reportLink: '', simulationLink: '', model3dLink: '', imageLinks: '' })
   const [fileMap, setFileMap] = useState({ report: null, images: [], simulation: null, model3d: null })
   const [loading, setLoading] = useState(false)
   const [error, setError]   = useState('')
@@ -103,6 +103,10 @@ export default function Upload() {
     // Parse objectives and tools as JSON arrays
     if (form.objectives) fd.set('objectives', JSON.stringify(form.objectives.split('\n').filter(Boolean)))
     if (form.tools)      fd.set('tools',      JSON.stringify(form.tools.split(',').map(t => t.trim()).filter(Boolean)))
+    if (form.reportLink)     fd.append('reportLink',     form.reportLink)
+    if (form.simulationLink) fd.append('simulationLink', form.simulationLink)
+    if (form.model3dLink)    fd.append('model3dLink',    form.model3dLink)
+    if (form.imageLinks)     fd.append('imageLinks',     form.imageLinks)
 
     if (fileMap.report)     fd.append('report',     fileMap.report)
     if (fileMap.simulation) fd.append('simulation', fileMap.simulation)
@@ -162,7 +166,13 @@ export default function Upload() {
         <label>College</label>
         <input placeholder="e.g. NITK Surathkal" value={form.college} onChange={e => setField('college', e.target.value)} />
 
-        <label>Upload Files</label>
+        <label>🔗 Share Files via Links <span className="label-hint">(Google Drive / GitHub — recommended)</span></label>
+        <input placeholder="📄 Report PDF link (Google Drive)" value={form.reportLink} onChange={e => setField('reportLink', e.target.value)} />
+        <input placeholder="🖼️ Images folder link (Google Drive)" value={form.imageLinks} onChange={e => setField('imageLinks', e.target.value)} style={{marginTop:8}} />
+        <input placeholder="⚙️ Simulation file link (Google Drive / GitHub)" value={form.simulationLink} onChange={e => setField('simulationLink', e.target.value)} style={{marginTop:8}} />
+        <input placeholder="🧊 3D Model link (Google Drive / GitHub)" value={form.model3dLink} onChange={e => setField('model3dLink', e.target.value)} style={{marginTop:8}} />
+
+        <label>Upload Files <span className="label-hint">(optional — use links above instead)</span></label>
         <div className="upload-grid-2">
           <FileSlot icon="📄" label="Project Report (PDF)" accept=".pdf" fieldName="report" files={fileMap.report} onChange={setFile} />
           <FileSlot icon="🖼️" label="Images (JPG/PNG)" accept=".jpg,.jpeg,.png,.webp" fieldName="images" multiple files={fileMap.images} onChange={setFile} />

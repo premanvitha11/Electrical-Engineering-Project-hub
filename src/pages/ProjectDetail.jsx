@@ -96,54 +96,50 @@ export default function ProjectDetail() {
 
         {tab === 'Circuit & Simulation' && (
           <div>
-            {project.files?.images?.length > 0 ? (
-              <>
-                <h2>Circuit / Project Images</h2>
-                <div className="images-grid">
-                  {project.files.images.map((img, i) => (
-                    <a key={i} href={`${FILE_BASE}${img.path}`} target="_blank" rel="noreferrer">
-                      <img src={`${FILE_BASE}${img.path}`} alt={img.name} className="project-image" />
-                    </a>
-                  ))}
-                </div>
-              </>
-            ) : <div className="placeholder-box">📐 No images uploaded for this project</div>}
-
-            {project.files?.report ? (
-              <>
-                <h2>Project Report</h2>
-                <a href={`${FILE_BASE}${project.files.report.path}`} target="_blank" rel="noreferrer" className="download-btn">
-                  📄 View / Download Report — {project.files.report.name}
-                </a>
-              </>
-            ) : <div className="placeholder-box" style={{marginTop:16}}>📄 No report uploaded</div>}
-
-            {project.files?.simulation ? (
-              <>
-                <h2>Simulation File</h2>
-                <a href={`${FILE_BASE}${project.files.simulation.path}`} download className="download-btn">
-                  ⬇ Download — {project.files.simulation.name}
-                </a>
-              </>
-            ) : null}
+            {project.links?.report && (
+              <><h2>Project Report</h2>
+              <a href={project.links.report} target="_blank" rel="noreferrer" className="download-btn">📄 Open Report (Google Drive)</a></>
+            )}
+            {project.links?.images && (
+              <><h2>Images</h2>
+              <a href={project.links.images} target="_blank" rel="noreferrer" className="download-btn">🖼️ View Images (Google Drive)</a></>
+            )}
+            {project.links?.simulation && (
+              <><h2>Simulation File</h2>
+              <a href={project.links.simulation} target="_blank" rel="noreferrer" className="download-btn">⚙️ Open Simulation File</a></>
+            )}
+            {project.files?.images?.length > 0 && (
+              <><h2>Uploaded Images</h2>
+              <div className="images-grid">
+                {project.files.images.map((img, i) => (
+                  <a key={i} href={`${FILE_BASE}${img.path}`} target="_blank" rel="noreferrer">
+                    <img src={`${FILE_BASE}${img.path}`} alt={img.name} className="project-image" />
+                  </a>
+                ))}
+              </div></>
+            )}
+            {project.files?.report && (
+              <><h2>Uploaded Report</h2>
+              <a href={`${FILE_BASE}${project.files.report.path}`} target="_blank" rel="noreferrer" className="download-btn">
+                📄 View Report — {project.files.report.name}
+              </a></>
+            )}
+            {!project.links?.report && !project.links?.images && !project.files?.images?.length && !project.files?.report && (
+              <div className="placeholder-box">📐 No files or links added for this project</div>
+            )}
           </div>
         )}
 
         {tab === '3D Model' && (
           <div>
-            {project.files?.model3d ? (
-              <>
-                <h2>3D Model File</h2>
-                <a href={`${FILE_BASE}${project.files.model3d.path}`} download className="download-btn">
-                  🧊 Download 3D Model — {project.files.model3d.name}
-                </a>
-                <div className="placeholder-box model-box" style={{marginTop:16}}>
-                  🔄 Interactive 3D viewer coming soon<br />
-                  <small>Download the file above to view in your 3D software</small>
-                </div>
-              </>
+            {project.links?.model3d ? (
+              <><h2>3D Model</h2>
+              <a href={project.links.model3d} target="_blank" rel="noreferrer" className="download-btn">🧊 Open 3D Model (Google Drive / GitHub)</a></>
+            ) : project.files?.model3d ? (
+              <><h2>3D Model File</h2>
+              <a href={`${FILE_BASE}${project.files.model3d.path}`} download className="download-btn">🧊 Download — {project.files.model3d.name}</a></>
             ) : (
-              <div className="placeholder-box model-box">🧊 No 3D model uploaded for this project</div>
+              <div className="placeholder-box model-box">🧊 No 3D model added for this project</div>
             )}
           </div>
         )}

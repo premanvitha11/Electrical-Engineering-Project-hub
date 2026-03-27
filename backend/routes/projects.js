@@ -18,7 +18,7 @@ router.post('/', protect, (req, res) => {
   projectUpload(req, res, async (err) => {
     if (err) return res.status(400).json({ message: err.message })
     try {
-      const { title, subject, abstract, objectives, tools, difficulty, semester, college, year } = req.body
+      const { title, subject, abstract, objectives, tools, difficulty, semester, college, year, reportLink, simulationLink, model3dLink, imageLinks } = req.body
       if (!title || !subject || !abstract || !difficulty) {
         return res.status(400).json({ message: 'title, subject, abstract and difficulty are required' })
       }
@@ -29,6 +29,7 @@ router.post('/', protect, (req, res) => {
         tools:      tools      ? JSON.parse(tools)      : [],
         author: req.user._id,
         files: mapFiles(req.files),
+        links: { report: reportLink, images: imageLinks, simulation: simulationLink, model3d: model3dLink },
         status: 'approved',
       })
       res.status(201).json(project)

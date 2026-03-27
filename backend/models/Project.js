@@ -20,6 +20,12 @@ const projectSchema = new mongoose.Schema({
     simulation: { name: String, path: String },
     model3d:    { name: String, path: String },
   },
+  links: {
+    report:     { type: String },
+    images:     { type: String },
+    simulation: { type: String },
+    model3d:    { type: String },
+  },
 }, { timestamps: true })
 
 module.exports = mongoose.model('Project', projectSchema)
