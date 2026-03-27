@@ -21,8 +21,8 @@
 .sr-meta { font-size: 12px; color: var(--subtext); margin-top: 2px; }
 
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-bottom: 32px; }
-.action-card { border-radius: 16px; padding: 20px 16px; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; border: 1px solid rgba(0,0,0,0.05); }
-.action-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.action-card { border-radius: 16px; padding: 20px 16px; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; border: 1px solid var(--border); }
+.action-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 .card-icon { font-size: 32px; display: block; margin-bottom: 10px; }
 .action-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
 .action-card p { font-size: 12px; color: var(--subtext); line-height: 1.5; }

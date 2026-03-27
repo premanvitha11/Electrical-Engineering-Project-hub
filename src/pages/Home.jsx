@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getProjects, getPopular, getRecent, saveProject } from '../api/client'
+import { useTheme } from '../components/ThemeContext'
 import './Home.css'
 
 const SUBJECT_COLORS = { Power: '#1a237e', Machines: '#b71c1c', Control: '#4a148c', Electronics: '#1b5e20' }
 
 const CARDS = [
-  { icon: '🔍', title: 'Browse Projects', sub: 'Explore real EE projects', path: '/explore', color: '#e8eaf6' },
-  { icon: '📤', title: 'Upload Project',  sub: 'Share your work with peers', path: '/upload', color: '#e0f7fa' },
-  { icon: '❓', title: 'Ask a Doubt',     sub: 'Get answers from seniors & profs', path: '/doubt', color: '#fff8e1' },
-  { icon: '🎓', title: 'Consult Experts', sub: 'Book 1-on-1 sessions', path: '/experts', color: '#fce4ec' },
-  { icon: '🏛️', title: 'College Repo',   sub: 'Year-wise project archives', path: '/college-repo', color: '#e8f5e9' },
+  { icon: '🔍', title: 'Browse Projects', sub: 'Explore real EE projects', path: '/explore', lightColor: '#e8eaf6', darkColor: '#1e2a4a' },
+  { icon: '📤', title: 'Upload Project',  sub: 'Share your work with peers', path: '/upload', lightColor: '#e0f7fa', darkColor: '#0d2d35' },
+  { icon: '❓', title: 'Ask a Doubt',     sub: 'Get answers from seniors & profs', path: '/doubt', lightColor: '#fff8e1', darkColor: '#2d2500' },
+  { icon: '🎓', title: 'Consult Experts', sub: 'Book 1-on-1 sessions', path: '/experts', lightColor: '#fce4ec', darkColor: '#2d0d1a' },
+  { icon: '🏛️', title: 'College Repo',   sub: 'Year-wise project archives', path: '/college-repo', lightColor: '#e8f5e9', darkColor: '#0d2d15' },
 ]
 
 function ProjectMiniCard({ p, onBookmark }) {
@@ -53,6 +54,7 @@ function SkeletonCard() {
 
 export default function Home() {
   const navigate = useNavigate()
+  const { dark } = useTheme()
   const [search, setSearch]       = useState('')
   const [results, setResults]     = useState([])
   const [searching, setSearching] = useState(false)
@@ -140,7 +142,7 @@ export default function Home() {
       {/* Action Cards */}
       <div className="cards-grid">
         {CARDS.map(c => (
-          <div key={c.title} className="action-card" style={{ background: c.color }} onClick={() => navigate(c.path)}>
+          <div key={c.title} className="action-card" style={{ background: dark ? c.darkColor : c.lightColor }} onClick={() => navigate(c.path)}>
             <span className="card-icon">{c.icon}</span>
             <h3>{c.title}</h3>
             <p>{c.sub}</p>
