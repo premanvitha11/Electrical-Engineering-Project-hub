@@ -129,9 +129,9 @@ export default function CollegeRepo() {
         )}
 
         <div className="info-box">
-          <p>🛡️ Projects published only after faculty approval</p>
-          <p>📚 Managed by department admin</p>
+          <p>📂 All uploaded projects are instantly published</p>
           <p>🎓 Helps juniors find guidance and inspiration</p>
+          <p>🔍 Browse year-wise projects from your college</p>
         </div>
       </div>
     )
