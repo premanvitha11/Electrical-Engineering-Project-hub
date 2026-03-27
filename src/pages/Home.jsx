@@ -103,7 +103,7 @@ export default function Home() {
         </div>
         <div className="home-stats">
           <div className="stat"><span className="stat-val">{totalCount}</span><span className="stat-label">Projects</span></div>
-          <div className="stat"><span className="stat-val">4+</span><span className="stat-label">Colleges</span></div>
+          <div className="stat"><span className="stat-val">Free</span><span className="stat-label">Always</span></div>
         </div>
       </div>
 

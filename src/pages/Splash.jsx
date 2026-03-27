@@ -16,7 +16,7 @@ export default function Splash() {
           <button className="btn-outline" onClick={() => navigate('/auth?mode=login')}>Login</button>
         </div>
         <div className="splash-features">
-          {['500+ Projects', 'Expert Mentors', 'College Archives', 'Verified Answers'].map(f => (
+          {['100% Free', 'Upload Projects', 'Ask Doubts', 'College Archives', 'Consult Experts', 'Preserve Work'].map(f => (
             <div key={f} className="feature-chip">✅ {f}</div>
           ))}
         </div>
