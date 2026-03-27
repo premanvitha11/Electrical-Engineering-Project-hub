@@ -106,7 +106,7 @@ export default function ProjectDetail() {
             )}
             {project.links?.simulation && (
               <><h2>Simulation File</h2>
-              <a href={project.links.simulation} target="_blank" rel="noreferrer" className="download-btn">⚙️ Open Simulation File</a></>
+              <a href={project.links.simulation} target="_blank" rel="noreferrer" className="download-btn">⚙️ Open Simulation File (Google Drive)</a></>
             )}
             {project.files?.images?.length > 0 && (
               <><h2>Uploaded Images</h2>
@@ -134,7 +134,7 @@ export default function ProjectDetail() {
           <div>
             {project.links?.model3d ? (
               <><h2>3D Model</h2>
-              <a href={project.links.model3d} target="_blank" rel="noreferrer" className="download-btn">🧊 Open 3D Model (Google Drive / GitHub)</a></>
+              <a href={project.links.model3d} target="_blank" rel="noreferrer" className="download-btn">🧊 Open 3D Model (Google Drive)</a></>
             ) : project.files?.model3d ? (
               <><h2>3D Model File</h2>
               <a href={`${FILE_BASE}${project.files.model3d.path}`} download className="download-btn">🧊 Download — {project.files.model3d.name}</a></>

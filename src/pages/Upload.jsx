@@ -166,11 +166,11 @@ export default function Upload() {
         <label>College</label>
         <input placeholder="e.g. NITK Surathkal" value={form.college} onChange={e => setField('college', e.target.value)} />
 
-        <label>🔗 Share Files via Links <span className="label-hint">(Google Drive / GitHub — recommended)</span></label>
+        <label>🔗 Share Files via Links <span className="label-hint">(Google Drive links)</span></label>
         <input placeholder="📄 Report PDF link (Google Drive)" value={form.reportLink} onChange={e => setField('reportLink', e.target.value)} />
         <input placeholder="🖼️ Images folder link (Google Drive)" value={form.imageLinks} onChange={e => setField('imageLinks', e.target.value)} style={{marginTop:8}} />
-        <input placeholder="⚙️ Simulation file link (Google Drive / GitHub)" value={form.simulationLink} onChange={e => setField('simulationLink', e.target.value)} style={{marginTop:8}} />
-        <input placeholder="🧊 3D Model link (Google Drive / GitHub)" value={form.model3dLink} onChange={e => setField('model3dLink', e.target.value)} style={{marginTop:8}} />
+        <input placeholder="⚙️ Simulation file link (Google Drive)" value={form.simulationLink} onChange={e => setField('simulationLink', e.target.value)} style={{marginTop:8}} />
+        <input placeholder="🧊 3D Model link (Google Drive)" value={form.model3dLink} onChange={e => setField('model3dLink', e.target.value)} style={{marginTop:8}} />
 
         <label>Upload Files <span className="label-hint">(optional — use links above instead)</span></label>
         <div className="upload-grid-2">
