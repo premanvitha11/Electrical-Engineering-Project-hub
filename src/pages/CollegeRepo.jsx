@@ -66,7 +66,7 @@ export default function CollegeRepo() {
         <button className="back-link" onClick={() => { setYear(null); setProjects([]) }}>
           ← {selected.name}
         </button>
-        <h1>{year} Batch Projects</h1>
+        <h1>{year}-{String(year + 1).slice(2)} Academic Year Projects</h1>
         <p className="repo-sub">{selected.name} — {selected.dept}</p>
 
         {projLoading ? (
@@ -94,16 +94,13 @@ export default function CollegeRepo() {
 
   // College-level: show years for selected college
   if (selected) {
-    const currentYear = new Date().getFullYear()
-    const years = selected.years?.length > 0
-      ? selected.years
-      : [currentYear, currentYear - 1, currentYear - 2]
+    const years = selected.years?.length > 0 ? selected.years : []
 
     return (
       <div className="repo-page">
         <button className="back-link" onClick={() => setSelected(null)}>← College Repository</button>
         <h1>{selected.name}</h1>
-        <p className="repo-sub">{selected.dept} • {selected.count} approved project{selected.count !== 1 ? 's' : ''}</p>
+        <p className="repo-sub">{selected.dept} • {selected.count} project{selected.count !== 1 ? 's' : ''}</p>
 
         <div className={`visibility-badge ${selected.isPublic ? 'public' : 'private'}`}>
           {selected.isPublic ? '🌐 Public Repository — Accessible to all students' : '🔒 College-Only Repository — Restricted access'}
@@ -117,11 +114,11 @@ export default function CollegeRepo() {
           </div>
         ) : (
           <>
-            <h2>Browse by Year</h2>
+            <h2>Browse by Academic Year</h2>
             {years.map(y => (
               <div key={y} className="year-row" onClick={() => handleSelectYear(selected, y)}>
                 <span className="year-icon">📁</span>
-                <span className="year-label">{y} Batch</span>
+                <span className="year-label">{y}-{String(y + 1).slice(2)} Academic Year</span>
                 <span className="repo-arrow">›</span>
               </div>
             ))}
