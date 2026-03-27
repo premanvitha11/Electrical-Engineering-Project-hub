@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getProfile, getMyProjects, updateProfile } from '../api/client'
+import { getProfile, getMyProjects, updateProfile, deleteProject } from '../api/client'
 import './Profile.css'
 
 const STATUS_COLOR = { approved: '#2e7d32', pending: '#f57f17', rejected: '#c62828' }
@@ -41,6 +41,14 @@ export default function Profile() {
     } finally {
       setSaving(false)
     }
+  }
+
+  const handleDelete = async (id, title) => {
+    if (!confirm(`Delete "${title}"? This cannot be undone.`)) return
+    try {
+      await deleteProject(id)
+      setMyProjects(ps => ps.filter(p => p._id !== id))
+    } catch (err) { alert(err.message) }
   }
 
   const handleLogout = () => {
@@ -152,6 +160,7 @@ export default function Profile() {
                     {p.status === 'approved' ? '✅' : p.status === 'pending' ? '⏳' : '❌'} {p.status}
                   </span>
                   {p.rating > 0 && <span className="proj-rating">⭐ {p.rating}</span>}
+                  <button className="delete-proj-btn" onClick={e => { e.stopPropagation(); handleDelete(p._id, p.title) }}>🗑️</button>
                 </div>
               </div>
             ))

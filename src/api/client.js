@@ -35,9 +35,10 @@ export const getProject    = (id)          => request('GET', `/projects/${id}`)
 export const getMyProjects = ()            => request('GET', '/projects/my')
 export const getPopular    = ()            => request('GET', '/projects/popular')
 export const getRecent     = ()            => request('GET', '/projects/recent')
-export const uploadProject = (formData)    => request('POST', '/projects', formData, true)
-export const approveProject = (id, status) => request('PATCH', `/projects/${id}/approve`, { status })
-export const rateProject   = (id, rating)  => request('POST', `/projects/${id}/rate`, { rating })
+export const uploadProject  = (formData)    => request('POST',   '/projects', formData, true)
+export const approveProject = (id, status)  => request('PATCH',  `/projects/${id}/approve`, { status })
+export const rateProject    = (id, rating)  => request('POST',   `/projects/${id}/rate`, { rating })
+export const deleteProject  = (id)          => request('DELETE', `/projects/${id}`)
 
 // Doubts
 export const getDoubts   = (subject) => request('GET', '/doubts' + (subject ? `?subject=${subject}` : ''))
