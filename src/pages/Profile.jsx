@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { getProfile, getMyProjects, updateProfile, deleteProject } from '../api/client'
 import './Profile.css'
 
-const STATUS_COLOR = { approved: '#2e7d32', pending: '#f57f17', rejected: '#c62828' }
-const STATUS_BG    = { approved: '#e8f5e9', pending: '#fff8e1', rejected: '#fce4ec' }
-
 export default function Profile() {
   const navigate = useNavigate()
   const [user, setUser]           = useState(null)
@@ -116,10 +113,8 @@ export default function Profile() {
       {/* Stats */}
       <div className="stats-row">
         {[
-          { v: myProjects.length,                                    l: 'Uploaded' },
-          { v: myProjects.filter(p => p.status === 'approved').length, l: 'Approved' },
-          { v: myProjects.filter(p => p.status === 'pending').length,  l: 'Pending' },
-          { v: savedProjects.length,                                 l: 'Saved' },
+          { v: myProjects.length, l: 'Uploaded' },
+          { v: savedProjects.length, l: 'Saved' },
         ].map(s => (
           <div key={s.l} className="stat-box">
             <span className="stat-val">{s.v}</span>
@@ -156,9 +151,6 @@ export default function Profile() {
                   <p className="proj-meta">{new Date(p.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                 </div>
                 <div className="proj-right">
-                  <span className="status-badge" style={{ background: STATUS_BG[p.status], color: STATUS_COLOR[p.status] }}>
-                    {p.status === 'approved' ? '✅' : p.status === 'pending' ? '⏳' : '❌'} {p.status}
-                  </span>
                   {p.rating > 0 && <span className="proj-rating">⭐ {p.rating}</span>}
                   <button className="delete-proj-btn" onClick={e => { e.stopPropagation(); handleDelete(p._id, p.title) }}>🗑️</button>
                 </div>
