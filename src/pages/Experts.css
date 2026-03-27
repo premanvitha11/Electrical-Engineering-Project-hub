@@ -2,7 +2,7 @@
 .experts-page h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
 .experts-sub { color: var(--subtext); font-size: 14px; margin-bottom: 28px; }
 .experts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 20px; }
-.expert-card { background: #fff; border-radius: 18px; padding: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px; }
+.expert-card { background: var(--card); border-radius: 18px; padding: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px; }
 .expert-avatar { width: 64px; height: 64px; border-radius: 32px; background: var(--primary); color: #fff; font-size: 22px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .expert-info h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
 .expert-role { font-size: 13px; color: var(--subtext); margin-bottom: 4px; }

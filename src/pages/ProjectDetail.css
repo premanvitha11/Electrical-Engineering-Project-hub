@@ -1,34 +1,17 @@
 .detail { max-width: 900px; margin: 0 auto; padding-bottom: 48px; }
+.detail-loading { padding: 60px; text-align: center; font-size: 16px; color: var(--subtext); }
+.detail-loading button { margin-left: 12px; color: var(--primary); font-weight: 700; background: none; border: none; cursor: pointer; font-size: 15px; }
 .detail-hero { padding: 40px 32px 32px; color: #fff; position: relative; }
-.back-btn { background: rgba(255,255,255,0.2); color: #fff; border-radius: 8px; padding: 6px 14px; font-size: 13px; font-weight: 600; margin-bottom: 20px; display: inline-block; }
+.back-btn { background: rgba(255,255,255,0.2); color: #fff; border-radius: 8px; padding: 6px 14px; font-size: 13px; font-weight: 600; margin-bottom: 20px; display: inline-block; border: none; cursor: pointer; }
 .back-btn:hover { background: rgba(255,255,255,0.3); }
 .detail-hero-icon { font-size: 52px; display: block; margin-bottom: 12px; }
 .detail-hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
 .detail-hero p { font-size: 14px; opacity: 0.85; margin-bottom: 14px; }
 .detail-badges { display: flex; flex-wrap: wrap; gap: 8px; }
 .badge-primary { background: rgba(255,255,255,0.2); color: #fff; border-radius: 8px; padding: 4px 12px; font-size: 12px; font-weight: 700; }
-.tab-bar { display: flex; background: #fff; border-bottom: 1px solid var(--border); overflow-x: auto; }
-.tab-btn { padding: 14px 20px; font-size: 14px; font-weight: 600; color: var(--subtext); background: transparent; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; }
-.tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-.tab-btn:hover:not(.active) { color: var(--text); }
-.detail-body { padding: 28px 32px; background: #fff; }
-.detail-body h2 { font-size: 16px; font-weight: 700; margin: 20px 0 10px; color: var(--text); }
-.detail-body h2:first-child { margin-top: 0; }
-.abstract { font-size: 14px; color: var(--subtext); line-height: 1.7; }
-.detail-body ul, .steps-list { padding-left: 20px; }
-.detail-body ul li, .steps-list li { font-size: 14px; color: var(--subtext); margin-bottom: 6px; line-height: 1.6; }
-.tools-row { display: flex; flex-wrap: wrap; gap: 8px; }
-.tool-chip { background: var(--primary); color: #fff; border-radius: 8px; padding: 5px 14px; font-size: 12px; font-weight: 600; }
-.placeholder-box { background: var(--primary-light); border-radius: 12px; padding: 40px; text-align: center; color: var(--subtext); font-size: 14px; line-height: 1.8; }
-.model-box { min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 16px; }
 .detail-hero-actions { margin-top: 14px; }
 .share-hero-btn { background: rgba(255,255,255,0.2); color: #fff; border: none; border-radius: 10px; padding: 8px 18px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
 .share-hero-btn:hover { background: rgba(255,255,255,0.3); }
-.detail-loading button { margin-left: 12px; color: var(--primary); font-weight: 700; background: none; border: none; cursor: pointer; font-size: 15px; }
-.badge-status { padding: 4px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; text-transform: capitalize; }
-.badge-status.approved { background: #e8f5e9; color: #2e7d32; }
-.badge-status.pending  { background: #fff8e1; color: #f57f17; }
-.badge-status.rejected { background: #fce4ec; color: #c62828; }
 .star-rating { display: flex; align-items: center; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
 .star-rating span { font-size: 13px; color: rgba(255,255,255,0.8); }
 .star-btn { background: none; border: none; font-size: 24px; color: rgba(255,255,255,0.4); cursor: pointer; padding: 0; transition: color 0.15s; }
@@ -36,6 +19,22 @@
 .star-btn:hover:not(:disabled) { color: var(--secondary); }
 .star-btn:disabled { cursor: default; }
 .rated-msg { font-size: 12px; color: var(--secondary); font-weight: 600; }
+
+.tab-bar { display: flex; background: var(--card); border-bottom: 1px solid var(--border); overflow-x: auto; }
+.tab-btn { padding: 14px 20px; font-size: 14px; font-weight: 600; color: var(--subtext); background: transparent; border: none; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; cursor: pointer; }
+.tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+.tab-btn:hover:not(.active) { color: var(--text); }
+
+.detail-body { padding: 28px 32px; background: var(--card); }
+.detail-body h2 { font-size: 16px; font-weight: 700; margin: 20px 0 10px; color: var(--text); }
+.detail-body h2:first-child { margin-top: 0; }
+.abstract { font-size: 14px; color: var(--subtext); line-height: 1.7; }
+.detail-body ul { padding-left: 20px; }
+.detail-body ul li { font-size: 14px; color: var(--subtext); margin-bottom: 6px; line-height: 1.6; }
+.tools-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.tool-chip { background: var(--primary); color: #fff; border-radius: 8px; padding: 5px 14px; font-size: 12px; font-weight: 600; }
+.placeholder-box { background: var(--primary-light); border-radius: 12px; padding: 40px; text-align: center; color: var(--subtext); font-size: 14px; line-height: 1.8; }
+.model-box { min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 16px; }
 .images-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
 .project-image { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: transform 0.15s; }
 .project-image:hover { transform: scale(1.02); }
@@ -43,8 +42,13 @@
 .download-btn:hover { opacity: 0.9; }
 .qa-card { background: var(--bg); border-radius: 12px; padding: 16px; margin-bottom: 14px; border: 1px solid var(--border); }
 .question { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
-.answer-box { background: #fff; border-radius: 8px; padding: 12px; border: 1px solid var(--border); }
+.answer-box { background: var(--card); border-radius: 8px; padding: 12px; border: 1px solid var(--border); }
 .answer-box.verified { border-color: var(--verified); background: #fffde7; }
 .answer-author { font-size: 12px; font-weight: 700; color: var(--primary); display: block; margin-bottom: 6px; }
 .answer-box p { font-size: 13px; color: var(--subtext); line-height: 1.6; }
 .verified-tag { font-size: 12px; color: var(--verified); font-weight: 700; display: block; margin-top: 8px; }
+
+@media (max-width: 600px) {
+  .detail-hero { padding: 24px 16px; }
+  .detail-body { padding: 20px 16px; }
+}
