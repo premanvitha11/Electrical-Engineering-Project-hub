@@ -14,6 +14,7 @@ export default function Upload() {
     tools: '', difficulty: '', semester: '', college: '',
     reportLink: '', imageLinks: '', simulationLink: '', model3dLink: ''
   })
+  const [showGuide, setShowGuide] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError]     = useState('')
 
@@ -56,6 +57,56 @@ export default function Upload() {
     <div className="form-page">
       <h1>📤 Upload Project</h1>
       <p className="form-sub">Share your EE project with the community</p>
+
+      {/* How to Upload Guide */}
+      <div className="guide-box">
+        <div className="guide-header" onClick={() => setShowGuide(g => !g)}>
+          <span>📖 How to Upload a Project</span>
+          <span>{showGuide ? '▲' : '▼'}</span>
+        </div>
+        {showGuide && (
+          <div className="guide-steps">
+            <div className="guide-step">
+              <span className="step-num">1</span>
+              <div>
+                <p className="step-title">Fill in Project Details</p>
+                <p className="step-desc">Enter your project title, select the subject (Power/Machines/Control/Electronics), write a clear abstract describing what your project does, list objectives and tools used.</p>
+              </div>
+            </div>
+            <div className="guide-step">
+              <span className="step-num">2</span>
+              <div>
+                <p className="step-title">Upload Files to Google Drive</p>
+                <p className="step-desc">Upload your PDF report, images, simulation files (.slx/.mdl) and 3D models to Google Drive. Keep all files organized in one folder.</p>
+              </div>
+            </div>
+            <div className="guide-step">
+              <span className="step-num">3</span>
+              <div>
+                <p className="step-title">Make Files Public</p>
+                <p className="step-desc">Right click each file in Google Drive → Share → click "Restricted" → change to "Anyone with the link" → Copy link. This allows anyone to view your files.</p>
+              </div>
+            </div>
+            <div className="guide-step">
+              <span className="step-num">4</span>
+              <div>
+                <p className="step-title">Paste Google Drive Links</p>
+                <p className="step-desc">Paste the copied links in the respective fields below (Report, Images, Simulation, 3D Model). Links are optional but highly recommended.</p>
+              </div>
+            </div>
+            <div className="guide-step">
+              <span className="step-num">5</span>
+              <div>
+                <p className="step-title">Submit Your Project</p>
+                <p className="step-desc">Click "Submit Project" — your project will be instantly published and visible to all students in the Explore section.</p>
+              </div>
+            </div>
+            <div className="guide-tip">
+              💡 <strong>Tip:</strong> A good abstract (3-5 sentences) and clear objectives will help other students understand and learn from your project.
+            </div>
+          </div>
+        )}
+      </div>
 
       <form className="form-card" onSubmit={handleSubmit}>
         {error && <div className="form-error">⚠️ {error}</div>}
