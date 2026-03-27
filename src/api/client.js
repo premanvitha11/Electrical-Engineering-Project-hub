@@ -25,9 +25,11 @@ async function request(method, path, body, isFormData = false) {
 }
 
 // Auth
-export const register = (body) => request('POST', '/auth/register', body)
-export const login    = (body) => request('POST', '/auth/login', body)
-export const getMe    = ()     => request('GET',  '/auth/me')
+export const register       = (body) => request('POST', '/auth/register', body)
+export const login          = (body) => request('POST', '/auth/login', body)
+export const getMe          = ()     => request('GET',  '/auth/me')
+export const requestReset   = (email) => request('POST', '/reset/request', { email })
+export const confirmReset   = (token, password) => request('POST', '/reset/confirm', { token, password })
 
 // Projects
 export const getProjects   = (params = {}) => request('GET', '/projects?' + new URLSearchParams(params))
