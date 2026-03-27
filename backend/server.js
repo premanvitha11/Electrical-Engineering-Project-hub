@@ -15,6 +15,7 @@ if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true })
 app.use(cors({
   origin: [
     process.env.CLIENT_URL,
+    'https://electrical-engineering-project-hub.vercel.app',
     'https://electrical-engineering-project-b2peep8ag-premanvithas-projects.vercel.app',
     'http://localhost:5173'
   ],
