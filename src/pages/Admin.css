@@ -1,0 +1,38 @@
+.admin-page { max-width: 900px; margin: 0 auto; padding: 32px 24px 60px; }
+.admin-page h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+.admin-sub { color: var(--subtext); font-size: 14px; margin-bottom: 24px; }
+.admin-loading { padding: 60px; text-align: center; color: var(--subtext); }
+.admin-empty { color: var(--subtext); padding: 40px; text-align: center; }
+
+.admin-tabs { display: flex; gap: 4px; background: var(--bg); border-radius: 12px; padding: 4px; margin-bottom: 20px; border: 1px solid var(--border); }
+.atab { flex: 1; padding: 10px; border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--subtext); background: transparent; border: none; cursor: pointer; transition: all 0.15s; }
+.atab.active { background: var(--primary); color: #fff; }
+
+.admin-card { background: var(--card); border-radius: 14px; padding: 18px; margin-bottom: 14px; border: 1px solid var(--border); display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.admin-card-info { flex: 1; min-width: 200px; }
+.admin-card-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+.admin-card-info p { font-size: 12px; color: var(--subtext); margin-bottom: 4px; }
+.admin-abstract { font-size: 12px; color: var(--subtext); line-height: 1.5; margin-top: 6px; }
+.admin-card-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; flex-shrink: 0; }
+
+.status-pill { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: capitalize; }
+.status-pill.approved { background: #e8f5e9; color: #2e7d32; }
+.status-pill.pending  { background: #fff8e1; color: #f57f17; }
+.status-pill.rejected { background: #fce4ec; color: #c62828; }
+
+.approve-btn { background: #e8f5e9; color: #2e7d32; border: none; border-radius: 8px; padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.approve-btn:hover { background: #22c55e; color: #fff; }
+.reject-btn { background: #fce4ec; color: #c62828; border: none; border-radius: 8px; padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.reject-btn:hover { background: var(--danger); color: #fff; }
+.view-link { background: var(--primary-light); color: var(--primary); border: none; border-radius: 8px; padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
+
+.subject-pill { background: var(--primary-light); color: var(--primary); border-radius: 6px; padding: 3px 10px; font-size: 11px; font-weight: 700; display: inline-block; margin-bottom: 8px; }
+.no-answers { font-size: 12px; color: var(--subtext); padding: 8px 0; }
+.answers-list { width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.answer-item { background: var(--bg); border-radius: 8px; padding: 10px 14px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.answer-item.verified { background: #fffde7; border-color: var(--verified); }
+.answer-item p { font-size: 13px; color: var(--subtext); flex: 1; }
+.answer-item strong { color: var(--primary); }
+.verified-pill { background: #fffde7; color: var(--verified); border-radius: 6px; padding: 4px 10px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.verify-btn { background: #fff8e1; color: #f57f17; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.verify-btn:hover { background: var(--verified); color: #fff; }

@@ -39,6 +39,32 @@ router.post('/', protect, (req, res) => {
   })
 })
 
+// GET /api/projects/popular
+router.get('/popular', async (req, res) => {
+  try {
+    const projects = await Project.find({ status: 'approved' })
+      .populate('author', 'name role college')
+      .sort({ views: -1 })
+      .limit(4)
+    res.json(projects)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+// GET /api/projects/recent
+router.get('/recent', async (req, res) => {
+  try {
+    const projects = await Project.find({ status: 'approved' })
+      .populate('author', 'name role college')
+      .sort({ createdAt: -1 })
+      .limit(4)
+    res.json(projects)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
 // GET /api/projects  — list approved projects with filters
 router.get('/', async (req, res) => {
   try {
@@ -73,7 +99,11 @@ router.get('/my', protect, async (req, res) => {
 // GET /api/projects/:id
 router.get('/:id', async (req, res) => {
   try {
-    const project = await Project.findById(req.params.id).populate('author', 'name role college')
+    const project = await Project.findByIdAndUpdate(
+      req.params.id,
+      { $inc: { views: 1 } },
+      { new: true }
+    ).populate('author', 'name role college')
     if (!project) return res.status(404).json({ message: 'Project not found' })
     res.json(project)
   } catch (err) {

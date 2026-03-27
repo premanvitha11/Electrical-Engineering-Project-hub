@@ -15,21 +15,31 @@
   --verified: #f59e0b;
 }
 
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+[data-theme="dark"] {
+  --primary: #7986cb;
+  --primary-light: #1e2a4a;
+  --secondary: #ffd600;
+  --accent: #00bcd4;
+  --bg: #0f1117;
+  --card: #1a1d2e;
+  --text: #e8eaf6;
+  --subtext: #9ca3af;
+  --border: #2d3148;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --verified: #f59e0b;
+}
+
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; }
 
 a { text-decoration: none; color: inherit; }
-
 button { cursor: pointer; border: none; font-family: inherit; }
 
 input, textarea, select {
-  font-family: inherit;
-  outline: none;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 14px;
-  width: 100%;
-  background: #fff;
+  font-family: inherit; outline: none;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; font-size: 14px; width: 100%;
+  background: var(--card); color: var(--text);
   transition: border-color 0.2s;
 }
 input:focus, textarea:focus, select:focus { border-color: var(--primary); }
@@ -37,3 +47,15 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary); }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 4px; }
+
+/* Skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}

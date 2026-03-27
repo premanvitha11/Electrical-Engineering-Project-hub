@@ -56,6 +56,16 @@ export default function Profile() {
   const initials = user.name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'EE'
   const savedProjects = user.savedProjects || []
 
+  const getBadges = () => {
+    const badges = []
+    if (user.role === 'Professor') badges.push({ icon: '🎓', label: 'Professor', color: '#e8eaf6' })
+    if (user.role === 'Senior')    badges.push({ icon: '⭐', label: 'Senior', color: '#fff8e1' })
+    if (myProjects.length >= 1)    badges.push({ icon: '📤', label: 'Contributor', color: '#e0f7fa' })
+    if (myProjects.length >= 5)    badges.push({ icon: '🏆', label: 'Top Contributor', color: '#fce4ec' })
+    if (myProjects.filter(p => p.rating >= 4.5).length > 0) badges.push({ icon: '💎', label: 'Quality Creator', color: '#e8f5e9' })
+    return badges
+  }
+
   return (
     <div className="profile-page">
 
@@ -83,6 +93,17 @@ export default function Profile() {
         </div>
         {!editing && <button className="edit-btn" onClick={() => setEditing(true)}>✏️ Edit</button>}
       </div>
+
+      {/* Badges */}
+      {getBadges().length > 0 && (
+        <div className="badges-row">
+          {getBadges().map(b => (
+            <span key={b.label} className="badge-chip" style={{ background: b.color }}>
+              {b.icon} {b.label}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Stats */}
       <div className="stats-row">

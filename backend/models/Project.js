@@ -14,6 +14,7 @@ const projectSchema = new mongoose.Schema({
   status:     { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
   rating:     { type: Number, default: 0 },
   ratingCount:{ type: Number, default: 0 },
+  views:      { type: Number, default: 0 },
   files: {
     report:     { name: String, path: String },
     images:     [{ name: String, path: String }],

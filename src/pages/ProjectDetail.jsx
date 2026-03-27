@@ -45,6 +45,12 @@ export default function ProjectDetail() {
   const role    = project.author?.role || ''
   const college = project.author?.college || project.college || ''
   const color   = { Power: '#1a237e', Machines: '#b71c1c', Control: '#4a148c', Electronics: '#1b5e20' }[project.subject] || '#1a237e'
+  const currentUser = JSON.parse(localStorage.getItem('user') || '{}')
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href)
+    alert('🔗 Link copied to clipboard!')
+  }
 
   return (
     <div className="detail">
@@ -58,7 +64,11 @@ export default function ProjectDetail() {
           <span className="badge-primary">{project.difficulty}</span>
           {project.semester && <span className="badge-primary">Sem {project.semester}</span>}
           <span className="badge-primary">⭐ {project.rating || 'No ratings'}</span>
-          <span className={`badge-status ${project.status}`}>{project.status}</span>
+          <span className="badge-primary">👁 {project.views || 0} views</span>
+        </div>
+
+        <div className="detail-hero-actions">
+          <button className="share-hero-btn" onClick={handleShare}>🔗 Share Project</button>
         </div>
 
         {/* Star rating */}

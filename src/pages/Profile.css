@@ -15,6 +15,9 @@
 .save-btn { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 8px 20px; font-size: 13px; font-weight: 700; cursor: pointer; }
 .cancel-btn { background: transparent; border: 1.5px solid var(--border); color: var(--subtext); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 600; cursor: pointer; }
 
+.badges-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.badge-chip { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; color: var(--text); }
+
 .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
 .stat-box { background: #fff; border-radius: 12px; padding: 16px; text-align: center; border: 1px solid var(--border); }
 .stat-val { display: block; font-size: 24px; font-weight: 800; color: var(--primary); }
